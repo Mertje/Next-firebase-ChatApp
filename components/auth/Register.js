@@ -4,10 +4,12 @@ import createUser from "../../utils/createUser";
 const Register = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassWord] = useState("");
-
+  const [error, setError] = useState("")
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     const user = await createUser(userName, password);
+    setError(user)
   };
 
   return (
@@ -31,7 +33,7 @@ const Register = () => {
           value={password}
           onChange={(e) => setPassWord(e.target.value)}
         />
-
+      {error}
       </div>
 
       <input type="submit" className="btn btn-primary btn-block mb-4"/>
