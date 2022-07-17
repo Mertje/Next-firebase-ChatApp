@@ -2,7 +2,7 @@ import Form from "../components/auth/Form";
 import { auth } from "../firebase/appClient";
 import { onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
-import SearchUser from "../components/chats/searchUser";
+import ChatScreen from "../components/chats/chatScreen";
 
 export default function Home() {
   const [logged, setLogged] = useState();
@@ -14,5 +14,5 @@ export default function Home() {
     }
   });
 
-  return <div className="container">{logged ? <SearchUser /> : <Form />} </div>
+  return <div className="container">{logged ? <ChatScreen /> : <Form />} </div>
 }

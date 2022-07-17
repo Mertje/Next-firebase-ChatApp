@@ -3,6 +3,7 @@ import Login from "./Login";
 import Register from "./Register";
 
 const Form = () => {
+    // switch text and component between login and register
     const [newUser , setNewUser] = useState(true)
 
   return (

@@ -1,21 +1,36 @@
 import { doc, getFirestore, getDoc } from "firebase/firestore";
-const db = getFirestore();
+import { getAuth } from "firebase/auth";
+import { useEffect, useState } from "react";
 
-const Chats = () => {
-    async function getUser(){
-        try {
-          const docSnap = await getDoc( doc(db, "users", user.uid));
-          if (docSnap.exists()) {
-            console.log( docSnap.data())
-          } else {
-             return console.log("Document does not exist");
-          }
-        } catch (error) {
-          return console.log(error);
-        }
-      }
+const allGroupChats = () => {
+  let listItems = '';
+  const [results, setResults] = useState([]);
+  useEffect(() => {
+    getGroupsFromUser();
+  }, []);
 
-    return (  <div></div>);
-}
- 
-export default Chats;
+  async function getGroupsFromUser() {
+    const docSnap = await getDoc(
+      doc(getFirestore(), "users", getAuth().currentUser.uid)
+    );
+    const docGroup = docSnap.data().group;
+    setResults(docGroup);
+  }
+
+  if(results){
+     listItems = results.map((number) =><li key={number}>{number}</li>)
+  }else{
+     listItems = "st"
+  }
+
+  return (
+    <div>
+      <span onClick={() => getGroupsFromUser()}> Refresh</span>
+      <ul>
+       {listItems}
+      </ul>
+    </div>
+  );
+};
+
+export default allGroupChats;
