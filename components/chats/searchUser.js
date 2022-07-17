@@ -18,9 +18,9 @@ const searchUser = () => {
       const searchQuery = await getDocs(
         query(citiesRef, where("email", "==", e.target.value))
       );
+      
       setUserInfo(searchQuery.empty ? 'Error User not found': 'user Added');
       searchQuery.forEach((doc) => {
-        console.log(doc)
         createGroup(doc.data())
       });
     }

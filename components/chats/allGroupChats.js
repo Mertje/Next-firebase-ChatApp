@@ -1,33 +1,19 @@
-import { doc, getFirestore, getDoc } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+
 import { useEffect, useState } from "react";
+import CurrentGroups from "../../utils/currentGroups";
+import ChatButton from "./chatButton";
 
 const allGroupChats = () => {
-  let listItems = '';
-  const [results, setResults] = useState([]);
-  useEffect(() => {
-    getGroupsFromUser();
-  }, []);
+  const [groups, getGroups] = useState()  
+  useEffect(() =>{
+    CurrentGroups().then(group => getGroups(group))
+  }, [])
 
-  async function getGroupsFromUser() {
-    const docSnap = await getDoc(
-      doc(getFirestore(), "users", getAuth().currentUser.uid)
-    );
-    const docGroup = docSnap.data().group;
-    setResults(docGroup);
-  }
-
-  if(results){
-     listItems = results.map((number) =><li key={number}>{number}</li>)
-  }else{
-     listItems = "st"
-  }
 
   return (
     <div>
-      <span onClick={() => getGroupsFromUser()}> Refresh</span>
       <ul>
-       {listItems}
+       {groups.map(group => <li key={group}>{group} <ChatButton group={group} /></li>)}
       </ul>
     </div>
   );
