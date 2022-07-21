@@ -7,6 +7,7 @@ import {
   getFirestore,
   getDocs,
 } from "firebase/firestore";
+import AllGroupChats from "./allGroupChats";
 
 const searchUser = () => {
   const db = getFirestore();
@@ -23,6 +24,7 @@ const searchUser = () => {
       searchQuery.forEach((doc) => {
         createGroup(doc.data())
       });
+
     }
   }
 
@@ -30,6 +32,9 @@ const searchUser = () => {
     <div>
       <input onKeyDown={handleKeyDown} />
       <p>{userInfo}</p>
+
+      <AllGroupChats triggerGetGroups={userInfo} />
+
     </div>
   );
 };

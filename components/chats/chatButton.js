@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import ChatLayout from "./chatLayout";
+import { useState } from "react";
 
 const ChatButton = (props) => {
   const db = getFirestore();
@@ -34,7 +35,7 @@ const ChatButton = (props) => {
     <div>
       <button>Open current chat</button>
       <br></br>
-      <ChatLayout group={props.group}/>
+      <ChatLayout group={props.group} />
       <input onKeyDown={sendChat} />
     </div>
   );

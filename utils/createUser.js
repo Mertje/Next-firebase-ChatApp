@@ -8,7 +8,7 @@ export default function createUser(userName, password) {
     //store user into firestore DB
     const db = getFirestore();
     const userRef = doc(db, 'users', user.user.uid);
-    setDoc(userRef, { email: userName, userUID: user.user.uid, groups: [] }, { merge: true } );
+    setDoc(userRef, { email: userName, userUID: user.user.uid, group: [] }, { merge: true } );
   })
   .catch((error) => {
     const errorCode = error.code;
