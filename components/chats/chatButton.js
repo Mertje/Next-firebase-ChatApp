@@ -5,14 +5,27 @@ import {
   arrayUnion,
   collection,
   addDoc,
+  onSnapshot
 } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import ChatLayout from "./chatLayout";
+import { useEffect, useState } from "react";
 
 const ChatButton = (props) => {
   const db = getFirestore();
   const auth = getAuth();
+  const [hide, setHide] = useState(true)
+  const [groupName, setGroupName] = useState(true)
 
+  // Get Group name of each group
+  useEffect(() =>{
+      onSnapshot(doc(db, "group", props.group), (doc) => {
+      setGroupName(doc.data().GroupName)
+    });
+
+  }, [])
+
+  // Send text message to DB
   async function sendChat(e) {
     if (e.key === "Enter") {
       const docRef = await addDoc(collection(db, "chats"), {
@@ -20,7 +33,6 @@ const ChatButton = (props) => {
         userName: auth.currentUser.email,
         groupUID: props.group,
         created: new Date().getTime()
-
       });
       const currentGroup = doc(db, "group", props.group);
       await updateDoc(currentGroup, {
@@ -32,9 +44,11 @@ const ChatButton = (props) => {
 
   return (
     <div>
-      <br></br>
-      <ChatLayout group={props.group} />
-      <input onKeyDown={sendChat} />
+      <p onClick={() => setHide(!hide)}>{groupName}</p>
+      <div className={hide ? 'd-none' : null}>
+        <ChatLayout group={props.group} currentUser={auth.currentUser.email}/>
+        <input onKeyDown={sendChat} />
+      </div>
     </div>
   );
 };

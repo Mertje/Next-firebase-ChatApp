@@ -9,7 +9,7 @@ import {
 import { useState, useEffect } from "react";
 
 const ChatLayout = (props) => {
-  const { group } = props;
+  const { group, currentUser } = props;
   const [chats, getChats] = useState([]);
 
   useEffect(() => {
@@ -29,11 +29,11 @@ const ChatLayout = (props) => {
 
   return (
     <div>
-      <ul>
         {chats.map((chat) => (
-          <li key={chat.created}>{chat.message} {chat.created}</li>
+          <p className={currentUser === chat.userName ? 'text-primary': 'text-success'} key={chat.created}>
+            {chat.message} {chat.created} - {chat.userName}
+          </p>
         ))}
-      </ul>
     </div>
   );
 };

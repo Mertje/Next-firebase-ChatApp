@@ -16,15 +16,13 @@ const allGroupChats = (props) => {
     );
   }, [triggerGetGroups]);
 
-
-  console.log(groups)
   return (
     <div>
       <ul>
         {groups
           ? groups.map((group) => (
               <li key={group}>
-                {group} <ChatButton group={group} />
+                <div> <ChatButton group={group} /> </div>
               </li>
             ))
           : null}

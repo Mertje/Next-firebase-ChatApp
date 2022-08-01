@@ -7,11 +7,12 @@ const createGroup = async (searchedUser) => {
   const loggedUser = doc(getFirestore(), "users", auth.currentUser.uid);
   const searchingUser = doc(getFirestore(), "users", searchedUser.userUID);
 
+  console.log( searchedUser.email + " - "+ auth.currentUser.email)
   if (docSnap.exists()) {
     docSnap.data();
   } else {
     //create a group collection with chosen user email
-    setDoc(groupDocument, {GroupUsers: [searchedUser.userUID, auth.currentUser.uid], chats: [],});
+    setDoc(groupDocument, {GroupUsers: [searchedUser.userUID, auth.currentUser.uid], GroupName: (searchedUser.email + " - "+ auth.currentUser.email) ,chats: [],});
     updateDoc(loggedUser, {group: arrayUnion( searchedUser.userUID + auth.currentUser.uid) });
     updateDoc(searchingUser, {group: arrayUnion( searchedUser.userUID + auth.currentUser.uid) });
   }
