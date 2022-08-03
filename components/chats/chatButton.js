@@ -43,11 +43,11 @@ const ChatButton = (props) => {
   }
 
   return (
-    <div>
+    <div >
       <p onClick={() => setHide(!hide)}>{groupName}</p>
-      <div className={hide ? 'd-none' : null}>
+      <div className={hide ? 'd-none' : "bg-light p-4"}>
         <ChatLayout group={props.group} currentUser={auth.currentUser.email}/>
-        <input onKeyDown={sendChat} />
+        <input className="w-100 border border-dark rounded  py-2" onKeyDown={sendChat} />
       </div>
     </div>
   );
