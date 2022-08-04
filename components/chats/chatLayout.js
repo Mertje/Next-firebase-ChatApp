@@ -30,13 +30,18 @@ const ChatLayout = (props) => {
   return (
     <div>
         {chats.map((chat) => (
-          <p className={currentUser === chat.userName ? 'bg-primary text-end': 'bg-success text-start'} key={chat.created}>
-            <span style={ {fontSize: 10, color: "#FFFFFF"}} >{chat.userName}</span>
-            <br></br>
-            {chat.message} 
-            <br></br>
-            <span style={ {fontSize: 10, color: "#FFFFFF"}} >{chat.created}</span>
-          </p>
+          <div className="w-100">
+              <p style={ {width: 'fit-content', maxWidth: '50%'}} className={currentUser === chat.userName ? 'bg-primary ms-auto me-0': 'bg-success text-start me-auto ms-0'} key={chat.created}>
+                <span style={ {fontSize: 10, color: "#FFFFFF"}} >{chat.userName}</span>
+                <br></br>
+                {chat.message} 
+                <br></br>
+                <span style={ {fontSize: 10, color: "#FFFFFF"}} >
+                  {// format time
+                chat.created
+                }</span>
+            </p>
+          </div>
         ))}
     </div>
   );

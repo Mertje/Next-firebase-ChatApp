@@ -27,7 +27,7 @@ const ChatButton = (props) => {
 
   // Send text message to DB
   async function sendChat(e) {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.target.value != "" ) {
       const docRef = await addDoc(collection(db, "chats"), {
         message: e.target.value,
         userName: auth.currentUser.email,
@@ -47,7 +47,9 @@ const ChatButton = (props) => {
       <p onClick={() => setHide(!hide)}>{groupName}</p>
       <div className={hide ? 'd-none' : "bg-light p-4"}>
         <ChatLayout group={props.group} currentUser={auth.currentUser.email}/>
-        <input className="w-100 border border-dark rounded  py-2" onKeyDown={sendChat} />
+        <div className="d-flex">
+        <input className="w-100 border border-dark rounded  py-2" onKeyDown={sendChat} placeholder="press enter to send text" />
+        </div>
       </div>
     </div>
   );

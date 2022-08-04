@@ -18,7 +18,7 @@ const allGroupChats = (props) => {
 
   return (
     <div>
-      <ul>
+      <ul className="group_Chat_Name">
         {groups
           ? groups.map((group) => (
               <li key={group}>
