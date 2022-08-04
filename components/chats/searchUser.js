@@ -32,9 +32,7 @@ const SearchUser = () => {
     <div>
       <input onKeyDown={handleKeyDown} />
       <p>{userInfo}</p>
-
       <AllGroupChats triggerGetGroups={userInfo} />
-
     </div>
   );
 };
