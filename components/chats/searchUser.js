@@ -9,7 +9,7 @@ import {
 } from "firebase/firestore";
 import AllGroupChats from "./allGroupChats";
 
-const searchUser = () => {
+const SearchUser = () => {
   const db = getFirestore();
   const emailRef = collection(db, "users");
   const [userInfo, setUserInfo] = useState();
@@ -39,4 +39,4 @@ const searchUser = () => {
   );
 };
 
-export default searchUser;
+export default SearchUser;

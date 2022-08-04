@@ -3,10 +3,10 @@ import ChatButton from "./chatButton";
 import { getAuth } from "firebase/auth";
 import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 
-const allGroupChats = (props) => {
+const AllGroupChats = (props) => {
   const { triggerGetGroups } = props;
   const [groups, getGroups] = useState();
-
+  
   useEffect(() => {
     onSnapshot(
       doc(getFirestore(), "users", getAuth().currentUser.uid),
@@ -31,4 +31,4 @@ const allGroupChats = (props) => {
   );
 };
 
-export default allGroupChats;
+export default AllGroupChats;
