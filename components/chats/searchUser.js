@@ -29,7 +29,7 @@ const SearchUser = () => {
   }
 
   return (
-    <div>
+    <div data-cy="search-div">
       <input onKeyDown={handleKeyDown} />
       <p>{userInfo}</p>
       <AllGroupChats triggerGetGroups={userInfo} />

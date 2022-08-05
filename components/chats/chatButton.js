@@ -20,8 +20,9 @@ const ChatButton = (props) => {
 
   return (
     <div >
-      <div className="border my-2 p-2">
-        <p className="my-0" onClick={() => setHide(!hide)}>{groupName}</p>
+      <div className="border my-2 p-2 d-flex" onClick={() => setHide(!hide)}>
+        <p className="my-0">{groupName}</p>
+        <span className={hide ? 'arrow': 'arrow arrow-open'}>	&lt; </span>
       </div>
       <div className={hide ? 'd-none' : "bg-light p-4"}>
         <ChatLayout group={props.group} currentUser={auth.currentUser.email}/>

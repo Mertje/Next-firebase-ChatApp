@@ -18,6 +18,7 @@ const Register = () => {
       <div className="form-outline mb-4">
         <label className="form-label">Email address</label>
         <input
+          data-cy="register-email"
           type="email"
           className="form-control"
           value={userName}
@@ -28,6 +29,7 @@ const Register = () => {
       <div className="form-outline mb-4">
         <label className="form-label">Password</label>
         <input
+          data-cy="register-password"
           type="password"
           className="form-control"
           value={password}
@@ -36,7 +38,7 @@ const Register = () => {
       {error}
       </div>
 
-      <input type="submit" className="btn btn-primary btn-block mb-4"/>
+      <input data-cy="register-submit" type="submit" className="btn btn-primary btn-block mb-4"/>
       
     </form>
   );

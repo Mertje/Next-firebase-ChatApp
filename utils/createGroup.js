@@ -7,7 +7,6 @@ const createGroup = async (searchedUser) => {
   const loggedUser = doc(getFirestore(), "users", auth.currentUser.uid);
   const searchingUser = doc(getFirestore(), "users", searchedUser.userUID);
 
-  console.log( searchedUser.email + " - "+ auth.currentUser.email)
   if (docSnap.exists()) {
     docSnap.data();
   } else {

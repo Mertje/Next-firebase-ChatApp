@@ -8,9 +8,9 @@ export default function Navbar() {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      setInlog("loggedin");
+      setInlog("Press to log out");
     } else {
-      setInlog("logged out");
+      setInlog("You are logged out");
     }
   });
   return (
@@ -18,7 +18,7 @@ export default function Navbar() {
       <a className="navbar-brand" href="#">
         Navbar
       </a>
-      <a className="nav-link" onClick={() => logoutUser()}>
+      <a data-cy="nav-login" className="nav-link" onClick={() => logoutUser()}>
         {inlog}
       </a>
     </nav>

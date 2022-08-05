@@ -17,3 +17,10 @@ a {
 .group_Chat_Name{
   list-style-type: none;
 }
+
+.arrow-open{
+  transform: rotate(-90deg);
+}
+.arrow{
+  margin: 0 0 0 auto;
+}
