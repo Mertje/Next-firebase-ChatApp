@@ -7,9 +7,9 @@ import {
   getFirestore,
   getDocs,
 } from "firebase/firestore";
-import AllGroupChats from "./allGroupChats";
+import GroupChats from "./GroupChats";
 
-const SearchUser = () => {
+const SearchEmail = () => {
   const db = getFirestore();
   const emailRef = collection(db, "users");
   const [userInfo, setUserInfo] = useState();
@@ -29,12 +29,14 @@ const SearchUser = () => {
   }
 
   return (
-    <div data-cy="search-div">
-      <input onKeyDown={handleKeyDown} />
+    <div>
+     <div className="d-flex text-center"> 
+      <input data-cy="search-div" onKeyDown={handleKeyDown} /> 
+     </div>
       <p>{userInfo}</p>
-      <AllGroupChats triggerGetGroups={userInfo} />
+      <GroupChats triggerGetGroups={userInfo} />
     </div>
   );
 };
 
-export default SearchUser;
+export default SearchEmail;

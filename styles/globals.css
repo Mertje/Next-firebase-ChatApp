@@ -16,6 +16,7 @@ a {
 }
 .group_Chat_Name{
   list-style-type: none;
+  padding: 0;
 }
 
 .arrow-open{
@@ -23,4 +24,9 @@ a {
 }
 .arrow{
   margin: 0 0 0 auto;
+}
+.text-block{
+  max-height: 200px;
+  overflow: hidden;
+  overflow-y: scroll;
 }

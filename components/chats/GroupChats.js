@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import ChatButton from "./chatButton";
+import ChatInterface from "./ChatInterface";
 import { getAuth } from "firebase/auth";
 import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 
-const AllGroupChats = (props) => {
+const GroupChats = (props) => {
   const { triggerGetGroups } = props;
   const [groups, getGroups] = useState();
   
@@ -22,7 +22,7 @@ const AllGroupChats = (props) => {
         {groups
           ? groups.map((group) => (
               <li key={group}>
-                <div> <ChatButton group={group} /> </div>
+                <div> <ChatInterface group={group} /> </div>
               </li>
             ))
           : null}
@@ -31,4 +31,4 @@ const AllGroupChats = (props) => {
   );
 };
 
-export default AllGroupChats;
+export default GroupChats;

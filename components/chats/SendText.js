@@ -8,7 +8,7 @@ import {
 } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
-const ChatLayout = (props) => {
+const SendText = (props) => {
   const { group, currentUser } = props;
   const [chats, getChats] = useState([]);
 
@@ -28,7 +28,7 @@ const ChatLayout = (props) => {
   }, []);
 
   return (
-    <div>
+    <div className="text-block">
         {chats.map((chat) => (
           <div className="w-100" key={chat.created}>
               <p style={ {width: 'fit-content', maxWidth: '50%'}} className={currentUser === chat.userName ? 'bg-primary ms-auto me-0 px-2': 'bg-success text-start me-auto ms-0 px-2'}>
@@ -47,4 +47,4 @@ const ChatLayout = (props) => {
   );
 };
 
-export default ChatLayout;
+export default SendText;
