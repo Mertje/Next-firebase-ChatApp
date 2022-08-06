@@ -20,7 +20,7 @@ const Register = () => {
           type="email"
           className="form-control"
           value={userName}
-          onChange={(e) => setUserName(e.target.value)}
+          onChange={e => setUserName(e.target.value)}
         />
       </div>
       <div className="form-outline mb-4">
@@ -30,7 +30,7 @@ const Register = () => {
           type="password"
           className="form-control"
           value={password}
-          onChange={(e) => setPassWord(e.target.value)}
+          onChange={e => setPassWord(e.target.value)}
         />
 
       </div>

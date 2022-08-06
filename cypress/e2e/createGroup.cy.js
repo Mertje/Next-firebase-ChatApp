@@ -12,6 +12,6 @@ describe("Create and open group", () => {
 
   it("should add group", () => {
     cy.get('[data-cy="search-div"]').should("be.visible").click().type('m@mertgunes.nl{enter}');
-    cy.get('[data-cy="groupname"]').should("be.visible").click();
+    cy.get('[data-cy="group-name"]').should("be.visible").click();
   });
 });
