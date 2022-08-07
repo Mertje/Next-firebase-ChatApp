@@ -18,7 +18,7 @@ const ChatInterface = (props) => {
 
   return (
     <div >
-      <div className="border my-2 p-2 d-flex" onClick={() => setHide(!hide)}>
+      <div className="border my-2 p-2 mb-0 d-flex" onClick={() => setHide(!hide)}>
         <p data-cy="group-name" className="my-0">{groupName}</p>
         <span className={hide ? 'arrow': 'arrow arrow-open'}>	&lt; </span>
       </div>
