@@ -25,7 +25,7 @@ const GroupChats = (props) => {
                 <div> <ChatInterface group={group} /> </div>
               </li>
             ))
-          : null}
+          : undefined}
       </ul>
     </div>
   );

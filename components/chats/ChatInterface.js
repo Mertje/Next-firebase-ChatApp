@@ -1,6 +1,6 @@
 import { doc, getFirestore, onSnapshot} from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import SendText from "./SendText";
+import GroupTextMessage from "./GroupTextMessage";
 import { useEffect, useState } from "react";
 import sendChat from "../../utils/sendtext";
 
@@ -22,10 +22,10 @@ const ChatInterface = (props) => {
         <p data-cy="group-name" className="my-0">{groupName}</p>
         <span className={hide ? 'arrow': 'arrow arrow-open'}>	&lt; </span>
       </div>
-      <div className={hide ? 'd-none' : "bg-light p-4"}>
-        <SendText group={props.group} currentUser={auth.currentUser.email}/>
+      <div className={hide ? 'd-none' : "bg-light pb-2 pt-1"}>
+        <GroupTextMessage group={props.group} currentUser={auth.currentUser.email}/>
         <div className="d-flex">
-        <input className="w-100 border border-dark rounded  py-2" onKeyDown={e => sendChat(e, props.group)} placeholder="press enter to send text" />
+        <input className="w-100 border border-dark rounded py-2 me-4 ms-1" onKeyDown={e => sendChat(e, props.group)} placeholder="press enter to send text" />
         </div>
       </div>
     </div>

@@ -31,7 +31,7 @@ const SearchEmail = () => {
   return (
     <div>
      <div className="d-flex text-center"> 
-      <input data-cy="search-div" onKeyDown={handleKeyDown} /> 
+      <input className="mt-3 search-input" data-cy="search-div" onKeyDown={handleKeyDown} />
      </div>
       <p>{userInfo}</p>
       <GroupChats triggerGetGroups={userInfo} />

@@ -7,8 +7,9 @@ import {
   orderBy
 } from "firebase/firestore";
 import { useState, useEffect } from "react";
+import timeConvert from "../../utils/timeConvert";
 
-const SendText = (props) => {
+const GroupTextMessage = (props) => {
   const { group, currentUser } = props;
   const [chats, getChats] = useState([]);
 
@@ -28,18 +29,16 @@ const SendText = (props) => {
   }, []);
 
   return (
-    <div className="text-block">
+    <div className="text-block mb-1" id="scroll">
         {chats.map((chat) => (
-          <div className="w-100" key={chat.created}>
-              <p style={ {width: 'fit-content', maxWidth: '50%'}} className={currentUser === chat.userName ? 'bg-primary ms-auto me-0 px-2': 'bg-success text-start me-auto ms-0 px-2'}>
-                <span style={ {fontSize: 10, color: "#FFFFFF"}} >{chat.userName}</span>
+          <div className="w-100 text-message-block" key={chat.created}>
+              <p className={currentUser === chat.userName ? 'logged-text ms-auto me-2 px-2': 'opposite-text text-start me-auto ms-2 px-2'}>
+                <span style={ {fontSize: 10 }} >{chat.userName}</span>
                 <br></br>
                 {chat.message} 
                 <br></br>
-                <span style={ {fontSize: 10, color: "#FFFFFF"}} >
-                  {// format time
-                chat.created
-                }</span>
+                <span style={ {fontSize: 10 }} >
+                  {timeConvert(chat.created)}</span>
             </p>
           </div>
         ))}
@@ -47,4 +46,4 @@ const SendText = (props) => {
   );
 };
 
-export default SendText;
+export default GroupTextMessage;

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  font-family: 'Lato', sans-serif;
+}
+
 html,
 body {
   padding: 0;
@@ -24,9 +30,44 @@ a {
 }
 .arrow{
   margin: 0 0 0 auto;
+  transition: 100ms;
 }
 .text-block{
   max-height: 200px;
   overflow: hidden;
   overflow-y: scroll;
 }
+.search-input:focus{
+  outline: none;
+  border:1px solid #003986 ;
+  box-shadow: 0 0 10px #0070f3;
+}
+.search-input{
+  outline: none ;
+  border:1px solid black;
+}
+.logged-text{
+  background-color: #d1f4cc;
+  border-radius: 7.5px;
+  box-shadow: 0 1px 0.5px rgba(11,20,26,.13);
+  width: fit-content;
+  maxWidth: 50%;
+}
+.opposite-text {
+  background-color: #FFFFFF;
+  border-radius: 7.5px;
+  box-shadow: 0 1px 0.5px rgba(11,20,26,.13);
+  width: fit-content;
+  maxWidth: 50%;
+}
+#scroll::-webkit-scrollbar {
+  width: 6px!important;
+  height: 6px!important;
+}
+#scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,.2);
+}
+#scroll::-webkit-scrollbar-track {
+  background: rgba(255,255,255,.1);
+}
+
