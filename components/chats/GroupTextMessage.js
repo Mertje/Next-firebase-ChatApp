@@ -6,19 +6,23 @@ import {
   query,
   orderBy
 } from "firebase/firestore";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef  } from "react";
 import timeConvert from "../../utils/timeConvert";
 
 const GroupTextMessage = (props) => {
+  const textRef = useRef(undefined);
   const { group, currentUser } = props;
   const [chats, getChats] = useState([]);
+
+  useEffect( () =>{
+    textRef.current.scrollTop = textRef.current.scrollHeight;
+  }, [chats])
 
   useEffect(() => {
     const queryDB = query(
       collection(getFirestore(), "chats"),
       where("groupUID", "==", group),
       orderBy('created', 'asc')
-
     );
     const unsubscribe = onSnapshot(queryDB, (snapshots) => {
       getChats(snapshots.docs.map((doc) => doc.data()));
@@ -26,18 +30,18 @@ const GroupTextMessage = (props) => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [group]);
 
   return (
-    <div className="text-block mb-1" id="scroll">
+    <div className="text-block mb-1" id="scroll" ref={textRef}>
         {chats.map((chat) => (
           <div className="w-100 text-message-block" key={chat.created}>
               <p className={currentUser === chat.userName ? 'logged-text ms-auto me-2 px-2': 'opposite-text text-start me-auto ms-2 px-2'}>
-                <span style={ {fontSize: 10 }} >{chat.userName}</span>
+                <span className="time-stamp" >{chat.userName}</span>
                 <br></br>
                 {chat.message} 
                 <br></br>
-                <span style={ {fontSize: 10 }} >
+                <span className="time-stamp" >
                   {timeConvert(chat.created)}</span>
             </p>
           </div>
