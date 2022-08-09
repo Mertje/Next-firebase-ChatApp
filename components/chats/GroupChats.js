@@ -6,14 +6,16 @@ import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 const GroupChats = (props) => {
   const { triggerGetGroups } = props;
   const [groups, getGroups] = useState();
-  
-  useEffect(() => {
-    onSnapshot(
-      doc(getFirestore(), "users", getAuth().currentUser.uid),
-      (doc) => {
-        getGroups(doc.data().group);
-      }
-    );
+
+    useEffect(() => {
+       onSnapshot(
+           doc(getFirestore(), "users", getAuth().currentUser.uid),
+           (doc) => {
+               if(doc.data()){
+                   getGroups(doc.data().group);
+               }
+           }
+       );
   }, [triggerGetGroups]);
 
   return (

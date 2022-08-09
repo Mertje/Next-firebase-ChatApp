@@ -12,7 +12,7 @@ const ChatInterface = (props) => {
 
   useEffect(() =>{
       onSnapshot(doc(db, "group", props.group), (doc) => {
-      setGroupName(doc.data().GroupName)
+      setGroupName(doc.data()?.GroupName)
     });
   }, [db , props.group])
 

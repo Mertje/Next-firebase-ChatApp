@@ -2,6 +2,7 @@ import { useState } from "react";
 import { auth } from "../firebase/appClient";
 import { onAuthStateChanged } from "firebase/auth";
 import logoutUser from "../utils/logoutUser";
+import deleteUser from "../utils/deleteUser";
 
 export default function Navbar() {
   const [inlog, setInlog] = useState("");
@@ -24,6 +25,7 @@ export default function Navbar() {
       <a data-cy="nav-login" className="nav-link" onClick={() => logoutUser()}>
           {loggedEmail} {inlog}
       </a>
+        <button onClick={() => deleteUser()}> Delete my account</button>
     </nav>
   );
 }
