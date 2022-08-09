@@ -4,22 +4,22 @@ import {signOut} from "firebase/auth";
 
 export default async function deleteUser() {
     const user = auth.currentUser;
-    const docUser = await getDoc(doc(getFirestore(), "users", user.uid))
-    const groups = docUser.data().group
 
     if (user) {
         signOut(auth)
-            .then(() => {
-                console.log("logged out succesfully");
+            .then(async() => {
+                const docUser = await getDoc(doc(getFirestore(), "users", user.uid))
+                const groups = docUser.data().group
                 getGroupsFromUser({groups})
+                await user.delete();
+                await deleteDoc(doc(getFirestore(), "users", user.uid));
             })
-            .catch((error) => {
-                console.log(error);
+            .catch( () => {
+                console.log("user not logged in");
             });
+    }else {
+        console.log('user not logged in')
     }
-
-    await user.delete();
-    await deleteDoc(doc(getFirestore(), "users", user.uid));
 }
 
 

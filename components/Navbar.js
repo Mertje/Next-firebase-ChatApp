@@ -25,7 +25,7 @@ export default function Navbar() {
       <a data-cy="nav-login" className="nav-link" onClick={() => logoutUser()}>
           {loggedEmail} {inlog}
       </a>
-        <button onClick={() => deleteUser()}> Delete my account</button>
+        {loggedEmail === "" ? undefined : <button onClick={() => deleteUser()}> Delete my account</button>}
     </nav>
   );
 }
