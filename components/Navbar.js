@@ -21,8 +21,9 @@ export default function Navbar() {
       <a className="navbar-brand" href="#">
         Navbar
       </a>
+        {loggedEmail}
       <a data-cy="nav-login" className="nav-link" onClick={() => logoutUser()}>
-          {loggedEmail} {inlog}
+          {inlog}
       </a>
     </nav>
   );

@@ -36,7 +36,7 @@ const GroupTextMessage = (props) => {
     <div className="text-block mb-1" id="scroll" ref={textRef}>
         {chats.map((chat) => (
           <div className="w-100 text-message-block" key={chat.created}>
-              <p className={currentUser === chat.userName ? 'logged-text ms-auto me-2 px-2': 'opposite-text text-start me-auto ms-2 px-2'}>
+              <p data-cy="chat-message" className={currentUser === chat.userName ? 'logged-text ms-auto me-2 px-2': 'opposite-text text-start me-auto ms-2 px-2'}>
                 <span className="time-stamp" >{chat.userName}</span>
                 <br></br>
                 {chat.message} 

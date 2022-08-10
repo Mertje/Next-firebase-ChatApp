@@ -10,13 +10,13 @@ export default async function deleteUser() {
                 const docUser = await getDoc(doc(getFirestore(), "users", user.uid))
                 const groups = docUser.data().group
                 getGroupsFromUser({groups})
-                await user.delete();
                 await deleteDoc(doc(getFirestore(), "users", user.uid));
             })
             .catch( () => {
                 console.log("user not logged in");
             });
     }
+    await user.delete();
 }
 
 

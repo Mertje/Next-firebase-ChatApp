@@ -6,6 +6,7 @@ describe("login existing user", () => {
   });
 
   it("should login", () => {
-    cy.login()
+    cy.login();
+    cy.get('[data-cy="nav-login"]').should("not.to.match", ":empty").click();
   });
 });

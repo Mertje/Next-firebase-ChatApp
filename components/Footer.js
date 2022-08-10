@@ -15,7 +15,7 @@ export default function Footer(){
 
     return (
         <div className="footer">
-            {logged ? undefined : <button onClick={() => deleteUser()}> Delete my account</button>}
+            {logged ? undefined : <button data-cy="delete-button" onClick={() => deleteUser()}> Delete my account</button>}
         </div>
     )
 }

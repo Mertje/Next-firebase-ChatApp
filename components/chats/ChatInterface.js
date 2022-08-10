@@ -25,7 +25,7 @@ const ChatInterface = (props) => {
       <div className={hide ? 'd-none' : "bg-light pb-2 pt-1"}>
         <GroupTextMessage group={props.group} currentUser={auth.currentUser.email}/>
         <div className="d-flex">
-        <input className="w-100 border border-dark rounded py-2 me-4 ms-1" onKeyDown={e => sendChat(e, props.group)} placeholder="press enter to send text" />
+        <input data-cy="chat-input" className="w-100 border border-dark rounded py-2 me-4 ms-1" onKeyDown={e => sendChat(e, props.group)} placeholder="press enter to send text" />
         </div>
       </div>
     </div>
