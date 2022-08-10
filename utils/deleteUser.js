@@ -4,7 +4,6 @@ import {signOut} from "firebase/auth";
 
 export default async function deleteUser() {
     const user = auth.currentUser;
-
     if (user) {
         signOut(auth)
             .then(async() => {
@@ -17,8 +16,6 @@ export default async function deleteUser() {
             .catch( () => {
                 console.log("user not logged in");
             });
-    }else {
-        console.log('user not logged in')
     }
 }
 

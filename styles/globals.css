@@ -33,7 +33,7 @@ a {
   transition: 100ms;
 }
 .text-block{
-  max-height: 60vh;
+  height: 60vh;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -45,6 +45,8 @@ a {
 .search-input{
   outline: none ;
   border:1px solid black;
+  border-radius: 5px;
+
 }
 .logged-text{
   background-color: #d1f4cc;
@@ -72,4 +74,10 @@ a {
 }
 .time-stamp{
   font-size: 10px;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

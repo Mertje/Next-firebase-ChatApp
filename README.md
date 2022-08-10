@@ -1,11 +1,9 @@
-# This project is in it's alpha phase.
-The only reason that this project is live right now is so you can see whats going on in my head
+# Simple Next/Firebase chat app
 
-# TODO: 
-1. Timestamps of chats
-2. Get the last 20 messages. 
-3. organize the latest groups to the top
-4. Add better code documentation
-5. E2E test for account creation process.
-6. Add a design (mobile first)
-7. Add a better Read.me
+This project made for learning purpose.<br/>
+You can find a working [demo](https://next-firebase-chat-app-red.vercel.app/) here.
+
+
+## TODO
+1. Add better design.
+2. Add more E2E tests

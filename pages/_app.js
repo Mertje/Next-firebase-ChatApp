@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import Navbar from '../components/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps }) {
 
@@ -8,6 +9,7 @@ function MyApp({ Component, pageProps }) {
    <>
      <Navbar/>
     <Component {...pageProps} />
+     <Footer />
    </>
   )
 }
