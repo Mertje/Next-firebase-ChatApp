@@ -6,4 +6,4 @@ You can find a working [demo](https://next-firebase-chat-app-red.vercel.app/) he
 
 ## TODO
 1. Add better design.
-2. Add more E2E tests
+2. Secure the DB better by rethinking the structure

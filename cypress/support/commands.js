@@ -25,16 +25,14 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 
-
-
-Cypress.Commands.add('initialCheck', () => { 
+Cypress.Commands.add('initialCheck', () => {
     cy.visit("/");
     cy.get('[data-cy="register-email"]').should("be.visible");
     cy.get('[data-cy="register-password"]').should("be.visible");
     cy.get('[data-cy="nav-login"]').should("not.to.match", ":empty").click();
- })
+})
 
-Cypress.Commands.add('login', () =>{
+Cypress.Commands.add('login', () => {
     cy.get('[data-cy="switch-form"]').click();
     cy.get('[data-cy="login-email"]').click().type("test@mertgunes.nl");
     cy.get('[data-cy="login-password"]').click().type("Welkom123");
